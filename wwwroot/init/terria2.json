@@ -1,0 +1,92 @@
+{
+  "homeCamera": {
+    "north": 44.29,
+    "east": -122,
+    "south": 44.18,
+    "west": -122.33
+  },
+  "baseMapName": "Bing Maps Roads",
+  "initialViewerMode": "2d",
+  "services": [],
+  "catalog": [
+    {
+      "name": "HJA Datasets",
+      "type": "group",
+      "items": [
+        {
+          "name": "Base Cartography",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          "isEnabled": true,
+          "layers": "DEM_HJA_V2",
+          //    "colorScaleMinimum": 2.0,
+          //   "colorScaleMaximum": 15.0,
+          //   "styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+        },
+        {
+          "name": "Biophysical Indicators",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          "isEnabled": true,
+          "layers": "VEG_HEIGHT_V2",
+          "colorScaleMinimum": 2.0,
+          "colorScaleMaximum": 15.0,
+          "styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+        }
+      ],
+      "isOpen": true
+    }
+  ],
+  "corsDomains": [
+    "whoi.edu",
+    "corsproxy.com",
+    "programs.communications.gov.au",
+    "www.asris.csiro.au"
+  ]
+}
+
+
+
+
+/*
+  "homeCamera": {
+    "north": 44.29,
+    "east": -122,
+    "south": 44.18,
+    "west": -122.33,
+    "position": {
+      "x": -2435613,
+      "y": -3897795,
+      "z": 4608786
+    },
+    "direction": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "up": {
+      "x": 0.30807420442344124,
+      "y": 0.3246424737331665,
+      "z": 0.8942580996654569
+    }
+  },
+
+  /*
+  "homeCamera": {
+    "positionHeading": {
+      "cameraLongitude": -122,
+      "cameraLatitude": 44,
+      "cameraHeight": 100000,
+      "heading": 10,
+      "pitch": -70,
+      "roll": 0
+    }
+  },
+
+*/

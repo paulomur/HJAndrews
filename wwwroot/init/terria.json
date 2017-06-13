@@ -1,0 +1,388 @@
+{
+  "homeCamera": {
+    "north": 44.80,
+    "east": -122,
+    "south": 44,
+    "west": -122.43
+  },
+  "initialCamera": {
+    "lookAt": {
+      "targetLongitude": -122.22,
+      "targetLatitude":44.22,
+      "targetHeight": 1000,
+      "heading": 45,
+      "pitch": 25,
+      "range": 10000
+    }
+  },
+
+  "baseMapName": "Bing Maps Aerial with Labels",
+  "initialViewerMode": "3d",
+  "services": [],
+
+  "catalog": [
+
+    {
+      "name": "Vegetation Dynamics",
+      "type": "group",
+      "preserveOrder": true,
+      "isOpen": false,  // if we want to leave the folder open once we go to add data
+      "items": [
+        {
+          "name": "Vegetation Cover Landsat-Based",
+          "type": "group",
+          "preserveOrder": true,
+          "isOpen": false,
+          "items": [
+
+            {
+              "name": "Biomass 1990",
+              "type": "wms",
+              "preserveOrder": true,
+              "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+              "isEnabled": true,
+              "isLegendVisible": false,
+              "layers": "biomass_1990",
+              //    "colorScaleMinimum": 2.0,
+              //   "colorScaleMaximum": 15.0,
+              //   "styles": "default-scalar/x-Sst",
+              "parameters": {
+                "VERSION": "1.1.1"
+              },
+
+              "ignoreUnknownTileErrors": true,
+              "getFeatureInfoFormats": [{"type": "none"}]
+            },
+
+            {
+              "name": "Biomass 2000",
+              "type": "wms",
+              "preserveOrder": true,
+              "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+              "isEnabled": true,
+              "isLegendVisible": false,
+              "layers": "biomass_2000",
+              //    "colorScaleMinimum": 2.0,
+              //   "colorScaleMaximum": 15.0,
+              //   "styles": "default-scalar/x-Sst",
+              "parameters": {
+                "VERSION": "1.1.1"
+              },
+
+              "ignoreUnknownTileErrors": true,
+              "getFeatureInfoFormats": [{"type": "none"}]
+            },
+
+            {
+              "name": "Biomass 2010",
+              "type": "wms",
+              "preserveOrder": true,
+              "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+              "isEnabled": true,
+              "isLegendVisible": false,
+              "layers": "biomass_2010",
+              //    "colorScaleMinimum": 2.0,
+              //   "colorScaleMaximum": 15.0,
+              //   "styles": "default-scalar/x-Sst",
+              "parameters": {
+                "VERSION": "1.1.1"
+              },
+
+              "ignoreUnknownTileErrors": true,
+              "getFeatureInfoFormats": [{"type": "none"}]
+            },
+
+
+            {
+              "name": "Vegetation Cover Lidar-Based",
+              "type": "group",
+              "preserveOrder": true,
+              "isOpen": false,
+              "items": [
+                {
+                  "name": "Biomass 2007 - Lidar Mission",
+                  "type": "wms",
+                  "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+                  //"isEnabled": true,
+                  "isLegendVisible": false,
+                  "layers": "lidar_2007_hja",
+                  //"colorScaleMinimum": 2.0,
+                  //"colorScaleMaximum": 15.0,
+                  //"styles": "default-scalar/x-Sst",
+                  "parameters": {
+                    "VERSION": "1.1.1"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+    {
+      "name": "Climate",
+      "type": "group",
+      "preserveOrder": true,
+      "items": [
+        {
+          "name": "Rainfall",
+          "type": "group",
+          "preserveOrder": true,
+          "items": [
+            {
+              "name": "CHIRPS Precipitation",
+              "isEnabled": true,
+              "isLegendVisible": false,
+              "type": "wms",
+              "url": "http://gsky.nci.org.au/ows",
+              "cacheDuration": "2h",
+              "layers": "chirps2.0",
+              "opacity": 1,
+              "initialTimeSource": "end",
+              "dateFormat": {
+                "currentTime": "mmmm yyyy",
+                "timelineTic": "yyyy"
+              },
+              "ignoreUnknownTileErrors": true,
+              "getFeatureInfoFormats": [{"type": "none"}]
+            },
+            {
+              "name": "CHIRPS Precipitation Anomaly",
+              "isEnabled": true,
+              "isLegendVisible": false,
+               "type": "wms",
+              "url": "http://qld.auscover.org.au/geoserver-rapp/ows",
+              "layers": "global:Monthly Rainfall Anomaly (CHIRPS)",
+              "opacity": 1,
+              "initialTimeSource": "end",
+              "dateFormat": {
+                "currentTime": "mmmm yyyy",
+                "timelineTic": "yyyy"
+              },
+              "ignoreUnknownTileErrors": true,
+              "featureInfoTemplate": {
+                "template": "<table class='cesium-infoBox-defaultTable'><tbody>  <tr>    <td>Rainfall Anomaly</td>    <td>{{Rainfall anomaly [mm per month]}} mm/month</td>  </tr></tbody></table>",
+                "name": "Rainfall Anomaly",
+                "formats": {
+                  "Rainfall anomaly [mm per month]": {
+                    "maximumFractionDigits": 2
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Soil Moisture",
+          "type": "group",
+          "preserveOrder": true,
+          "items": [
+            {
+              "name": "Soil Moisture",
+              "type": "wms",
+              "isEnabled": true,
+              "isLegendVisible": false,
+              "url": "http://qld.auscover.org.au/thredds/wms/auscover/spatial_other/csiro/amsr2/amsr2-soilm-global-monthly.nc",
+              "layers": "soilm",
+              "opacity": 1,
+              "parameters": {
+                "styles": "boxfill/csiro_anomaly"
+              },
+              "initialTimeSource": "end",
+              "dateFormat": {
+                "currentTime": "mmmm yyyy",
+                "timelineTic": "mmmm yyyy"
+              },
+              "ignoreUnknownTileErrors": true,
+              "featureInfoTemplate": {
+                "template": "<table class='cesium-infoBox-defaultTable'><tbody>  <tr>    <td>Soil Moisture</td>    <td>{{value}} %</td>  </tr></tbody></table>",
+                "name": "Soil Moisture",
+                "formats": {
+                  "value": {
+                    "maximumFractionDigits": 2
+                  }
+                }
+              }
+            },
+            {
+              "name": "Soil Moisture Anomaly",
+              "isEnabled": true,
+              "isLegendVisible": false,
+              "type": "wms",
+              "url": "http://qld.auscover.org.au/thredds/wms/auscover/spatial_other/csiro/amsr2/amsr2-soilm-anomaly-global-monthly.nc",
+              "layers": "soilm_anomaly",
+              "opacity": 1,
+              "parameters": {
+                "styles": "boxfill/csiro_anomaly"
+              },
+              "initialTimeSource": "end",
+              "dateFormat": {
+                "currentTime": "mmmm yyyy",
+                "timelineTic": "mmmm yyyy"
+              },
+              "ignoreUnknownTileErrors": true,
+              "featureInfoTemplate": {
+                "template": "<table class='cesium-infoBox-defaultTable'><tbody>  <tr>    <td>Soil Moisture Anomaly</td>    <td>{{value}} %</td>  </tr></tbody></table>",
+                "name": "Soil Moisture Anomaly",
+                "formats": {
+                  "value": {
+                    "maximumFractionDigits": 2
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+
+
+
+    {
+      "name": "Terrain",
+      "type": "group",
+      "preserveOrder": true,
+      "items": [
+
+
+        {
+          "name": "Digital Elevation Model",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          //"isEnabled": true,
+          "isLegendVisible": false,
+          "layers": "DEM_HJA_V2",
+          //"opacity" : 100,
+          //"colorScaleMinimum": 2.0,
+          //"colorScaleMaximum": 15.0,
+          //"styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+
+
+
+
+        }
+      ]
+    },
+
+
+    {
+      "name": "Ancillary",
+      "type": "group",
+      "items": [
+        {
+          "name": "Borders",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          "isEnabled": true,
+          "isLegendVisible": false,
+          "layers": "HJA_boundary",
+          "opacity" : 0.9,
+          //"colorScaleMinimum": 2.0,
+          //"colorScaleMaximum": 15.0,
+          //"styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+        },
+
+        {
+          "name": "Roads",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          "isEnabled": true,
+          "isLegendVisible": false,
+          "layers": "roads_HJA_Version2",
+          //"colorScaleMinimum": 2.0,
+          //"colorScaleMaximum": 15.0,
+          //"styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+        }
+
+      ]
+    } ,
+
+
+    {
+      "name": "Drone Campaign",
+      "type": "group",
+      "items": [
+        {
+          "name": "Orthomosaic-Inspire II",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          "isEnabled": true,
+          "isLegendVisible": false,
+          "layers": "hjortho1",
+          "opacity" : 0.9,
+          //"colorScaleMinimum": 2.0,
+          //"colorScaleMaximum": 15.0,
+          //"styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+        },
+
+        {
+          "name": "DEM-Inspire II",
+          "type": "wms",
+          "url": "http://mapious.ceoas.oregonstate.edu/geoserver/HJA_V2/wms",
+          "isEnabled": true,
+          "isLegendVisible": false,
+          "layers": "hjdem1",
+          //"colorScaleMinimum": 2.0,
+          //"colorScaleMaximum": 15.0,
+          //"styles": "default-scalar/x-Sst",
+          "parameters": {
+            "VERSION": "1.1.1"
+          }
+        }
+
+      ]
+    },
+
+
+    {
+    "name": "WWWWW",
+    "type": "group",
+    "items": [
+    {
+      "name": "Relative Humidity",
+      "description": "CHRIS DATA CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA   , \n\nCHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  .",
+      "attribution": "CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  .",
+      "type": "czml",
+      "url": "test/HJA/CENMET_233_Relative_Humidity(%).czml"
+      /*"rectangle": [
+            -122.25,
+            44.147,
+            -122.1,
+            44.150
+    ]*/
+    },
+
+
+    {
+    "name": "Relative Humidity 1",
+    "description": "CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  \n\n",
+    "attribution": "CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  CHRIS DATA  .",
+    "type": "czml",
+    "url": "test/HJA/CENMET_233_Relative_Humidity(%)1.czml"
+    /*"rectangle": [
+    144.354,
+    -38.147,
+    144.358,
+    -38.150
+    ]*/
+    }
+    ]
+  }
+
+  ]
+}
