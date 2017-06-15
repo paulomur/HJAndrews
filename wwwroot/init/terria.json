@@ -135,7 +135,7 @@
           "items": [
             {
               "name": "CHIRPS Precipitation",
-              "isEnabled": true,
+              "isEnabled": false,
               "isLegendVisible": false,
               "type": "wms",
               "url": "http://gsky.nci.org.au/ows",
@@ -152,7 +152,7 @@
             },
             {
               "name": "CHIRPS Precipitation Anomaly",
-              "isEnabled": true,
+              "isEnabled": false,
               "isLegendVisible": false,
                "type": "wms",
               "url": "http://qld.auscover.org.au/geoserver-rapp/ows",
@@ -184,7 +184,7 @@
             {
               "name": "Soil Moisture",
               "type": "wms",
-              "isEnabled": true,
+              "isEnabled": false,
               "isLegendVisible": false,
               "url": "http://qld.auscover.org.au/thredds/wms/auscover/spatial_other/csiro/amsr2/amsr2-soilm-global-monthly.nc",
               "layers": "soilm",
@@ -210,7 +210,7 @@
             },
             {
               "name": "Soil Moisture Anomaly",
-              "isEnabled": true,
+              "isEnabled": false,
               "isLegendVisible": false,
               "type": "wms",
               "url": "http://qld.auscover.org.au/thredds/wms/auscover/spatial_other/csiro/amsr2/amsr2-soilm-anomaly-global-monthly.nc",
