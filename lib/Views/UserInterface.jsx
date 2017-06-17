@@ -19,7 +19,7 @@ export default function UserInterface(props) {
                 <RelatedMaps viewState={props.viewState} />
 
 
-                <MenuItem caption="About_" href="http://cdn.rawgit.com/tycharris/HJA_Portal_About/dd0adbad/about_edit.html" key="About-link"/>
+                <MenuItem caption="About_" href="https://paulomur.github.io/HJA_Portal_About-master/" key="About-link"/>
 
 
             </Menu>
